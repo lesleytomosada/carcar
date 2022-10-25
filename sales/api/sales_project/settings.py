@@ -26,15 +26,25 @@ SECRET_KEY = 'django-insecure-=0#lozw6m8fg901fvz9(b-$@y*_3)v9tgbo9x2se(ezga0)(mj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = []
+
+
+# Application definition
+
 INSTALLED_APPS = [
     'sales_rest.apps.SalesRestConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
 ]
+
+
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -46,17 +56,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = [
-    "localhost"
-]
-
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:8090",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://localhost:8090"
+    "http://localhost:8090",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -64,6 +71,7 @@ DJWTO_MODE = "TWO-COOKIES"
 DJWTO_ACCESS_TOKEN_LIFETIME = None
 
 ROOT_URLCONF = 'sales_project.urls'
+
 
 TEMPLATES = [
     {
@@ -89,6 +97,7 @@ WSGI_APPLICATION = 'sales_project.wsgi.application'
 
 DATABASES = {}
 DATABASES["default"] = dj_database_url.config()
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
