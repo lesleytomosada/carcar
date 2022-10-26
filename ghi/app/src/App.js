@@ -7,7 +7,14 @@ import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
 
 
-function App() {
+////// Sales //////////
+import SalesPersonForm from './SalesPersonForm' ;
+import CustomerForm from './CustomerForm';
+import SalesRecordForm from './SalesRecordForm';
+import SalesPersonHistory from './SalesPersonHistory';
+import SalesRecordList from './SalesRecordList' ;
+
+function App(props) {
   return (
     <BrowserRouter>
       <Nav />
@@ -18,10 +25,26 @@ function App() {
           <Route path="serviceappointment/new" element={<ServiceAppointmentForm/>} />
           <Route path="serviceappointment/list" element={<AppointmentList/>} />
           <Route path="serviceappointment/history" element={<ServiceHistory/>} />
-        </Routes>
+          
+            <Route path="salespersons/create" element={<SalesPersonForm />} />
+
+            <Route path="salespersons" element={<SalesPersonHistory />} />
+
+            <Route path="customers" element={<CustomerForm/>}/>
+
+            <Route path="saleshistory" element={<SalesRecordList/>}/>
+
+            <Route path="sales" element={<SalesRecordForm/>}/>
+
+          </Routes>
       </div>
     </BrowserRouter>
   );
-}
+ }
+
+
+
+
+
 
 export default App;

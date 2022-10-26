@@ -226,3 +226,4 @@ def api_vehicle_model(request, pk):
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
+
