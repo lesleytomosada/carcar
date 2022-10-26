@@ -15,10 +15,10 @@ import CustomerForm from './CustomerForm';
 import SalesRecordForm from './SalesRecordForm';
 import SalesPersonHistory from './SalesPersonHistory';
 import SalesRecordList from './SalesRecordList' ;
-import AutomobilesList from './AutomobilesList';
-
 
 //Inventory
+import AutomobilesList from './AutomobilesList';
+import AutomobileForm from './AutomobileForm';
 
 function App(props) {
   return (
@@ -40,6 +40,7 @@ function App(props) {
             <Route path="sales" element={<SalesRecordForm/>}/>
     {/* Inventory */}
             <Route path="automobiles/" element={<AutomobilesList/>}/>
+            <Route path="automobiles/new" element={<AutomobileForm/>}/>
           </Routes>
       </div>
     </BrowserRouter>

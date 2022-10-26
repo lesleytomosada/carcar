@@ -48,7 +48,6 @@ handleTechnicianChange(event){
 async handleSubmit(event){
     event.preventDefault();
     const data = {...this.state}
-    console.log("Mickey Mouse", data)
     data.owner_name=data.ownerName
     data.service_reason=data.serviceReason
     data.date_and_time=data.dateAndTime
