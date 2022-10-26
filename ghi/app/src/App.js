@@ -4,6 +4,7 @@ import Nav from './Nav';
 import TechnicianForm from './TechnicianForm';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
 import AppointmentList from './AppointmentList';
+import ServiceHistory from './ServiceHistory';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="technician/new" element={<TechnicianForm/>} />
           <Route path="serviceappointment/new" element={<ServiceAppointmentForm/>} />
           <Route path="serviceappointment/list" element={<AppointmentList/>} />
+          <Route path="serviceappointment/history" element={<ServiceHistory/>} />
         </Routes>
       </div>
     </BrowserRouter>
