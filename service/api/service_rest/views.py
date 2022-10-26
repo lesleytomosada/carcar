@@ -11,7 +11,7 @@ class AutomobileVOEncoder(ModelEncoder):
 
 class TechnicianListEncoder(ModelEncoder):
     model = Technician
-    properties=["name","employee_number"]
+    properties=["name","employee_number", "id"]
 
 class TechnicianDetailEncoder(ModelEncoder):
     model = Technician
@@ -20,7 +20,15 @@ class TechnicianDetailEncoder(ModelEncoder):
 class ServiceAppointmentListEncoder(ModelEncoder):
     model=ServiceAppointment
     properties=["vin", "owner_name", "date_and_time", "technician", "service_reason", "is_vip","is_completed", "id"]
+    
     encoders={"technician":TechnicianDetailEncoder()}
+
+    def get_extra_data(self, o):
+        return {
+            "technician": o.technician.name
+        }
+
+
 
 
 @require_http_methods(["GET", "POST"])
