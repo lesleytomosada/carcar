@@ -12,6 +12,7 @@ import SalesPersonHistory from './SalesPersonHistory';
 import SalesRecordList from './SalesRecordList' ;
 import ManufacturersList from './ManufacturersList';
 import ManufacturerForm from './ManufacturersForm' ;
+import ModelsList from './ModelsList';
 
 function App(props) {
   return (
@@ -23,6 +24,9 @@ function App(props) {
           <Route path="manufacturers">
               <Route path="" element={<ManufacturersList />} />
               <Route path="new" element={<ManufacturerForm />} />
+          </Route>
+          <Route path="models">
+              <Route path="" element={<ModelsList/>} />
           </Route>
           <Route path="technician/new" element={<TechnicianForm/>} />
           <Route path="serviceappointment/new" element={<ServiceAppointmentForm/>} />
