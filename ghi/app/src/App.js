@@ -5,14 +5,13 @@ import TechnicianForm from './TechnicianForm';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
-
-
-////// Sales //////////
 import SalesPersonForm from './SalesPersonForm' ;
 import CustomerForm from './CustomerForm';
 import SalesRecordForm from './SalesRecordForm';
 import SalesPersonHistory from './SalesPersonHistory';
 import SalesRecordList from './SalesRecordList' ;
+import ManufacturersList from './ManufacturersList';
+import ManufacturerForm from './ManufacturersForm' ;
 
 function App(props) {
   return (
@@ -21,22 +20,20 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="manufacturers">
+              <Route path="" element={<ManufacturersList />} />
+              <Route path="new" element={<ManufacturerForm />} />
+          </Route>
           <Route path="technician/new" element={<TechnicianForm/>} />
           <Route path="serviceappointment/new" element={<ServiceAppointmentForm/>} />
           <Route path="serviceappointment/list" element={<AppointmentList/>} />
           <Route path="serviceappointment/history" element={<ServiceHistory/>} />
-          
-            <Route path="salespersons/create" element={<SalesPersonForm />} />
-
-            <Route path="salespersons" element={<SalesPersonHistory />} />
-
-            <Route path="customers" element={<CustomerForm/>}/>
-
-            <Route path="saleshistory" element={<SalesRecordList/>}/>
-
-            <Route path="sales" element={<SalesRecordForm/>}/>
-
-          </Routes>
+          <Route path="salespersons/create" element={<SalesPersonForm />} />
+          <Route path="salespersons" element={<SalesPersonHistory />} />
+          <Route path="customers" element={<CustomerForm/>}/>
+          <Route path="saleshistory" element={<SalesRecordList/>}/>
+          <Route path="sales" element={<SalesRecordForm/>}/>
+        </Routes>
       </div>
     </BrowserRouter>
   );

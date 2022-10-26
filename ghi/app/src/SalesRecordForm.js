@@ -18,7 +18,7 @@ class SalesRecordForm extends React.Component {
         this.handleCustomerChange = this.handleCustomerChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        /// this.handleChange = this.handleChange.bind(this);
+
     }
 
     async handleSubmit(event) {
@@ -151,7 +151,7 @@ class SalesRecordForm extends React.Component {
                     id="salesperson"
                     className="form-select">
                    <option value="">Choose a Sales Person</option>
-                   
+
                    {this.state.salespeople.map(salesperson => {
                             return (
                                 <option key={salesperson.employee_id}

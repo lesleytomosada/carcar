@@ -9,18 +9,15 @@ class CustomerForm extends React.Component {
             address: "",
             phone_number: "",
         }
-        // This is what allows me to type in the form boxes
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleAddressChange = this.handleAddressChange.bind(this);
         this.handlePhoneNumberChange = this.handlePhoneNumberChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-//This is what handle the submit button
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        // Making sure it is getting the new data I want
         console.log(data);
 
 
@@ -34,7 +31,6 @@ class CustomerForm extends React.Component {
             },
         };
         const response = await fetch(customersUrl, fetchConfig);
-        //
         console.log("TEST")
         console.log(response)
 
@@ -48,8 +44,6 @@ class CustomerForm extends React.Component {
         }
     }
 
-
-    // This handles the change from current state and DOM
     handleNameChange(event) {
         const value = event.target.value;
         this.setState({ name: value });

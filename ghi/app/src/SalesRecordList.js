@@ -15,7 +15,6 @@ class SaleRecordList extends React.Component {
     if (saleRecordsResponse.ok) {
       const saleRecordsData = await saleRecordsResponse.json();
       this.setState({sales_history: saleRecordsData.sales_history});
-      //console.log("THIS IS SALES HISTORY", saleRecordsData.sales_history)
     }
   }
 
@@ -53,5 +52,3 @@ class SaleRecordList extends React.Component {
 }
 
 export default SaleRecordList;
-
-
