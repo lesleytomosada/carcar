@@ -6,7 +6,7 @@ function ModelTable(props) {
         <div class="card-group ">
         <div className="card col-3 my-2 mx-2 border-success mb-5">
             {props.model.picture_url && (
-                <img src={props.model.picture_url} className="card-img-top" />
+                <img style={{ width:500 }} src={props.model.picture_url} className="card-img-top" />
             )}
             <div className="card-body text-center">
                 <h5 className="card-title">{props.model.name}</h5>
@@ -69,4 +69,3 @@ class ModelsList extends React.Component {
 }
 
   export default ModelsList;
-
