@@ -18,9 +18,6 @@ class CustomerForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        console.log(data);
-
-
 
         const customersUrl = "http://localhost:8090/api/customers/";
         const fetchConfig = {
@@ -31,8 +28,6 @@ class CustomerForm extends React.Component {
             },
         };
         const response = await fetch(customersUrl, fetchConfig);
-        console.log("TEST")
-        console.log(response)
 
         if (response.ok) {
             const cleared = {

@@ -9,11 +9,11 @@ class AutomobileVO(models.Model):
 
 
 class Salesperson(models.Model):
-    name = models.CharField(max_length=50)
+    name1 = models.CharField(max_length=50)
     employee_number = models.BigIntegerField()
 
     def __str__(self):
-        return self.name
+        return self.name1
 
 
 
@@ -50,4 +50,3 @@ class SalesHistory(models.Model):
     def __str__(self):
         #Q: When do we have put this into a string
         return f'{self.sales_person}, {self.automobile}'
-

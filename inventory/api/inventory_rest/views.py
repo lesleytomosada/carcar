@@ -34,7 +34,7 @@ def api_automobiles(request):
             response = JsonResponse(
                 {"message": "Could not create the automobile"}
             )
-            response.status_code = 400
+            response.status = 400
             return response
 
 
@@ -50,7 +50,7 @@ def api_automobile(request, vin):
             )
         except Automobile.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
     elif request.method == "DELETE":
         try:
@@ -80,7 +80,7 @@ def api_automobile(request, vin):
             )
         except Automobile.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
 
 
@@ -105,7 +105,7 @@ def api_manufacturers(request):
             response = JsonResponse(
                 {"message": "Could not create the manufacturer"}
             )
-            response.status_code = 400
+            response.status = 400
             return response
 
 
@@ -121,7 +121,7 @@ def api_manufacturer(request, pk):
             )
         except Manufacturer.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
     elif request.method == "DELETE":
         try:
@@ -151,7 +151,7 @@ def api_manufacturer(request, pk):
             )
         except Manufacturer.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
 
 
@@ -179,7 +179,7 @@ def api_vehicle_models(request):
             response = JsonResponse(
                 {"message": "Could not create the vehicle model"}
             )
-            response.status_code = 400
+            response.status = 400
             return response
 
 
@@ -195,7 +195,7 @@ def api_vehicle_model(request, pk):
             )
         except VehicleModel.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
     elif request.method == "DELETE":
         try:
@@ -224,6 +224,5 @@ def api_vehicle_model(request, pk):
             )
         except VehicleModel.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
+            response.status = 404
             return response
-

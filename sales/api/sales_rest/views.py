@@ -17,7 +17,8 @@ class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
         "vin",
-        "import_href"
+        "import_href",
+        "id"
         ]
 
 
@@ -26,7 +27,7 @@ class SalesPersonEncoder(ModelEncoder):
     model = Salesperson
     properties = [
         "id",
-        "name",
+        "name1",
         "employee_number"
         ]
 
@@ -35,7 +36,9 @@ class CustomerEncoder(ModelEncoder):
     properties = [
         "name",
         "address",
-        "phone_number"]
+        "phone_number",
+        "id",
+        ]
 
 class SalesHistoryEncoder(ModelEncoder):
     model = SalesHistory
@@ -43,7 +46,8 @@ class SalesHistoryEncoder(ModelEncoder):
         "price",
         "automobile",
         "sales_person",
-        "customer"
+        "customer",
+        "id"
     ]
     encoders = {
         "automobile": AutomobileVOEncoder(),
@@ -60,6 +64,7 @@ class SalesHistoryDetailEncoder(ModelEncoder):
         "sales_person",
         "customer",
         "price",
+        "id"
     ]
 
     encoders = {
@@ -170,16 +175,18 @@ def list_sales(request):
         try:
             #vin the request set to all of the content in automobileVo
             automobile = content["automobile"]
-            content["automobile"] = AutomobileVO.objects.get(vin=automobile['vin'])
+            print("***********", content)
+            help = AutomobileVO.objects.get(automobile=automobile)
+            content["automobile"] = help
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
             {"message": "Automobile does not exist"},
-            status_code = 404
+            status = 404
             )
         #        Check for Sales Person info       #
         try:
-            name = content["sales_person"]
-            sales_person = Salesperson.objects.get(name=name)
+            name1 = content["sales_person"]
+            sales_person = Salesperson.objects.get(name1=name1)
             content["sales_person"] = sales_person
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -247,8 +254,8 @@ def show_sales(request, pk):
             )
         #        Check for Sales Person info       #
         try:
-            name = content["sales_person"]
-            sales_person = Salesperson.objects.get(name=name)
+            name1 = content["sales_person"]
+            sales_person = Salesperson.objects.get(name1=name1)
             content["sales_person"] = sales_person
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -354,5 +361,3 @@ def show_customer(request, phone_number):
             {"message": "Customer does not exist"},
             status_code = 400
             )
-
-

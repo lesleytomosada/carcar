@@ -17,6 +17,17 @@ class SaleRecordList extends React.Component {
       this.setState({sales_history: saleRecordsData.sales_history});
     }
   }
+  async deleteHistory(history){
+    const url = `http://localhost:8090/api/sales/${history.id}`
+    const fetchConfig = {
+        method:"delete"
+    }
+    const response = await fetch (url, fetchConfig)
+    if (response.ok){
+        const remHistory = this.state.sales_history.filter((i) => history.id !== i.id)
+        this.setState({sales_history:remHistory})
+    }
+}
 
   render() {
     return (
@@ -35,12 +46,15 @@ class SaleRecordList extends React.Component {
           <tbody>
             {this.state.sales_history.map(history => {
               return (
-                <tr key={ history.pk }>
-                  <td>{ history.sales_person.name }</td>
+                <tr key={ history.id }>
+                  <td>{ history.sales_person.name1 }</td>
                   <td>{ history.sales_person.employee_number }</td>
                   <td>{ history.customer.name }</td>
                   <td>{ history.automobile.vin }</td>
                   <td>{ history.price }</td>
+                  <td>
+                    <button type="button" className="btn btn-danger" onClick={() => this.deleteHistory(history)}>Delete</button>
+                  </td>
                 </tr>
               );
             })}

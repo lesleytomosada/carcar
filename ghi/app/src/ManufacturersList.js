@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function ManufacturerTable(props) {
     return (
         <tr key={props.manufacturer.id}>
-            <td>{ props.manufacturer.name }</td>
+            <th>{ props.manufacturer.name }</th>
         </tr>
     )
 }
@@ -32,31 +32,31 @@ class ManufacturersList extends React.Component {
 
     render() {
         return (
-            <>
-            <div className="px-4 py-5 my-5">
-                <h1 className="display-2 fw-bold text-center">Manufacturers</h1>
-                <table className="table .table-bordered table-striped table-success text-left">
-                    <thead>
-                        <tr>
-                        <th >Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.manufacturers.map((manufacturer) => {
-                            return (
-                                <ManufacturerTable
-                                manufacturer={manufacturer}
-                                key={manufacturer.id}
-                                />
-                            );
-                        })}
-                    < div class= "d-flex justify-content-center">
-                         <NavLink className="btn btn-success btn-default " type="submit" to="/manufacturers/new" data-toggle="button">Add New Manufacturer</NavLink>
-                    </div>
-                    </tbody>
-                </table>
+            <div>
+                <div className="px-4 py-5 my-5">
+                    <h1 className="display-2 fw-bold text-center">Manufacturers</h1>
+                    <table className="table .table-bordered table-striped table-success text-left">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.manufacturers.map((manufacturer) => {
+                                return (
+                                    <ManufacturerTable
+                                    manufacturer={manufacturer}
+                                    key={manufacturer.id}
+                                    />
+                                );
+                            })}
+                            {/* <tr className= "d-flex justify-content-center">
+                                <NavLink className="btn btn-success btn-default " type="submit" to="/manufacturers/new" data-toggle="button">Add New Manufacturer</NavLink>
+                            </tr> */}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            </>
         );
     }
 }

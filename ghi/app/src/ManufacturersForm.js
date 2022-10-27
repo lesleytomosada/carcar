@@ -46,7 +46,7 @@ class ManufacturerForm extends React.Component {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1 class= 'text-center'>Add Manufacturer</h1>
+            <h1 className= 'text-center'>Add Manufacturer</h1>
             <form onSubmit={this.handleSubmit} id="create-manufacturer-form">
                 <div className="form-floating mb-3">
                     <input onChange={this.handleChangeManufacturer}
@@ -58,7 +58,7 @@ class ManufacturerForm extends React.Component {
                     className="form-control" />
                     <label htmlFor="manufacturer">Manufacturer</label>
                 </div>
-                <div class= "d-flex justify-content-center">
+                <div className= "d-flex justify-content-center">
                     <button className="btn btn-success btn-default m-1"  type="submit" data-toggle="button">Submit</button>
                     <NavLink className="btn btn-success btn-default m-1" type="submit" to="/manufacturers" data-toggle="button">Manufacturer List</NavLink>
                 </div>

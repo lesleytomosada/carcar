@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-=0#lozw6m8fg901fvz9(b-$@y*_3)v9tgbo9x2se(ezga0)(mj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "sales-api",
+]
 
 
 # Application definition
@@ -41,8 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
 ]
 
 
@@ -65,6 +66,16 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8090",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+    "PUSH"
 ]
 CORS_ALLOW_CREDENTIALS = True
 

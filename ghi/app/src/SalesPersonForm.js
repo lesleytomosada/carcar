@@ -5,7 +5,7 @@ class SalesPersonForm extends React.Component {
     constructor(props) {
         super(props) ;
         this.state = {
-            name: "",
+            name1: "",
             employee_number: "",
         }
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -16,8 +16,6 @@ class SalesPersonForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        console.log(data);
-
 
 
         const salespersonUrl = "http://localhost:8090/api/salespersons/";
@@ -28,13 +26,13 @@ class SalesPersonForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
+        console.log("HERERERE",data )
         const response = await fetch(salespersonUrl, fetchConfig);
-        console.log("TEST")
-        console.log(response)
+
 
         if (response.ok) {
             const cleared = {
-                name: '',
+                name1: '',
                 employee_number: '',
             };
             this.setState(cleared);
@@ -43,7 +41,7 @@ class SalesPersonForm extends React.Component {
 
     handleNameChange(event) {
         const value = event.target.value;
-        this.setState({ name: value });
+        this.setState({ name1: value });
     }
 
     handleEmployeeNumberChange(event) {
@@ -67,7 +65,7 @@ class SalesPersonForm extends React.Component {
                                   placeholder="Sales Person Name"
                                   required
                                   type="text"
-                                  name="name"
+                                  name1="name"
                                   id="name"
                                 />
                                 <label htmlFor="name">Name</label>
@@ -81,6 +79,7 @@ class SalesPersonForm extends React.Component {
                                   required
                                   type="number"
                                   name="employee_number"
+                                  min="0"
                                   id="employee_number"
                                 />
                                 <label htmlFor="name">Employee Number</label>
