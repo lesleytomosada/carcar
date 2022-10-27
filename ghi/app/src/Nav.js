@@ -22,7 +22,7 @@ function Nav() {
             </ul>
             </li>
             <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Service</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <NavLink className="nav-link" aria-current="page" to="/technician/new">Add Technician</NavLink>
