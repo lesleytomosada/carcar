@@ -48,7 +48,6 @@ def api_list_technicians(request):
 def api_list_service_appointments(request):
     if request.method== "GET":
         service_appointments=ServiceAppointment.objects.all()
-        print("Hello",service_appointments)
         return JsonResponse({"service_appointments":service_appointments}, encoder=ServiceAppointmentListEncoder, safe=False)
     elif request.method=="POST":
         content=json.loads(request.body)
@@ -56,6 +55,12 @@ def api_list_service_appointments(request):
             employee_number=content["technician"]
             technician = Technician.objects.get(employee_number=employee_number)
             content["technician"]=technician
+            vin=content["vin"]
+            vincheck=AutomobileVO.objects.filter(vin=vin)
+            if len(vincheck)>0:
+                content["is_vip"]=True
+            else:
+                content["is_vip"]=False
         except Technician.DoesNotExist:
             return JsonResponse({"message": "Invalid Technician ID"}, status_code=400)
         service_appointment=ServiceAppointment.objects.create(**content)

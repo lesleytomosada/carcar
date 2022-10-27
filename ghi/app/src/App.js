@@ -5,7 +5,7 @@ import Nav from './Nav';
 // Service
 import TechnicianForm from './TechnicianForm';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
-import AppointmentList from './AppointmentList';
+import AppointmentList from './ServiceAppointmentList';
 import ServiceHistory from './ServiceHistory';
 
 //Sales
