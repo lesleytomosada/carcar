@@ -1,3 +1,4 @@
+from enum import auto
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from common.json import ModelEncoder
@@ -17,7 +18,7 @@ class TechnicianDetailEncoder(ModelEncoder):
     model = Technician
     properties=["name","employee_number"]
 
-class ServiceAppointmentListEncoder(ModelEncoder):
+class ServiceAppointmentEncoder(ModelEncoder):
     model=ServiceAppointment
     properties=["vin", "owner_name", "date_and_time", "technician", "service_reason", "is_vip","is_completed", "id"]
     
@@ -48,7 +49,7 @@ def api_list_technicians(request):
 def api_list_service_appointments(request):
     if request.method== "GET":
         service_appointments=ServiceAppointment.objects.all()
-        return JsonResponse({"service_appointments":service_appointments}, encoder=ServiceAppointmentListEncoder, safe=False)
+        return JsonResponse({"service_appointments":service_appointments}, encoder=ServiceAppointmentEncoder, safe=False)
     elif request.method=="POST":
         content=json.loads(request.body)
         try:
@@ -64,10 +65,28 @@ def api_list_service_appointments(request):
         except Technician.DoesNotExist:
             return JsonResponse({"message": "Invalid Technician ID"}, status_code=400)
         service_appointment=ServiceAppointment.objects.create(**content)
-        return JsonResponse(service_appointment, ServiceAppointmentListEncoder, safe= False)
+        return JsonResponse(service_appointment, ServiceAppointmentEncoder, safe= False)
 
-@require_http_methods(["DELETE"])
+@require_http_methods(["DELETE", "PUT"])
 def api_detail_service_appointments(request, pk):
-     if request.method == "DELETE":
+    if request.method == "DELETE":
         count,_ = ServiceAppointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count>0})
+    else:
+        try:
+            content=json.loads(request.body)
+            appt=ServiceAppointment.objects.get(pk=pk)
+            props = ["is_completed","owner_name"]
+            for prop in props:
+                if prop in content:
+                    setattr(appt, prop, content[prop])
+            appt.save()
+            return JsonResponse(
+                appt,
+                encoder=ServiceAppointmentEncoder,
+                safe=False,
+            )
+        except ServiceAppointment.DoesNotExist:
+            response = JsonResponse({"message":"Service Appointment Does not Exist"})
+            response.status_code = 404
+            return response

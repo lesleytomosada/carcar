@@ -25,18 +25,35 @@ async deleteServiceAppointment(service_appointment){
     }   
 }
 
-// async handleCompletion(service_appointment){
+async handleCompletion(service_appointment){
+ const data = {
+        "is_completed": true,
+    }
+    console.log(data)
+    const url = `http://localhost:8080/api/serviceappointments/${service_appointment.id}/`
+    const fetchConfig={
+        method:"put",
+        body: JSON.stringify(data),
+        headers:{
+            "Content-Type": "application/json",
+        }
+    }
+    const response = await fetch(url, fetchConfig)
+    if (response.ok){
+        const completedAppointment = await response.json()
+        console.log(completedAppointment)
+        window.location.reload()
+    }
 
-// }
+}
 
 render(){
     return (
         <div className="container">
-            <h1>Appointment List</h1>
+            <h1>Upcoming Appointment List</h1>
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>FOR TESTING: Completed</th>
                             <th>VIN</th>
                             <th>Owner Name</th>
                             <th>VIP</th>
@@ -48,10 +65,9 @@ render(){
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state?.service_appointments.map(service_appointment => {
+                        {this.state?.service_appointments.filter(service_appointment => service_appointment.is_completed === false).map(service_appointment => {
                             return(
                                 <tr key={service_appointment.id}>
-                                    <td>{String(service_appointment.is_completed)}</td>
                                     <td>{service_appointment.vin}</td>
                                     <td>{service_appointment.owner_name}</td>
                                     <td>{service_appointment.is_vip===true? "*":""}</td>
@@ -60,7 +76,7 @@ render(){
                                     <td>{service_appointment.service_reason}</td>
                                     <td>
                                         <button type="button" onClick={() => this.deleteServiceAppointment(service_appointment)} className="btn btn-danger">Cancel</button>
-                                        <button type="button" className="btn btn-success">Complete</button>
+                                        <button type="button" onClick={() => this.handleCompletion(service_appointment)} className="btn btn-success">Complete</button>
                                     </td>
                                 </tr>
                             )
