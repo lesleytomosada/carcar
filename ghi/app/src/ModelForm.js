@@ -35,12 +35,16 @@ class ModelForm extends React.Component{
 
 async handleSubmit(event){
     event.preventDefault();
-    const data = {...this.state}
-    data.picture_url=data.pictureUrl
-    data.manufacturer_id=data.manufacturer
-    delete data.manufacturer
-    delete data.manufacturers
-    delete data.pictureUrl
+    const {
+        name, pictureUrl, manufacturer
+    } = this.state
+
+    const data = {
+        name,
+        "picture_url": pictureUrl,
+        "manufacturer_id": manufacturer,
+    }
+
     console.log("DATA::::",data)
     const modelUrl="http://localhost:8100/api/models/"
     const fetchConfig = {
@@ -59,7 +63,7 @@ async handleSubmit(event){
         const cleared = {
             name: '',
             pictureUrl:'',
-            manufacturers:'',
+            manufacturer:'',
         }
         this.setState(cleared);
     }
