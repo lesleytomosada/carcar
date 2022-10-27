@@ -22,6 +22,7 @@ class SalesPersonHistory extends React.Component{
         const saleHistoryResponse = await fetch(saleHistoryUrl);
         if (saleHistoryResponse.ok) {
             const saleData = await saleHistoryResponse.json();
+           // this.setState({sales_history: saleData.sales_history})
         }
     }
 
@@ -66,6 +67,7 @@ class SalesPersonHistory extends React.Component{
                     id="salesperson" >
                     <option value="">Choose a Sales Person to View History</option>
                     {this.state.salespeople.map(salesperson => {
+                        //Do i need to filter here
                             return (
                                 <option key={salesperson.employee_id}
                                 value={salesperson.employee_id}>
@@ -106,3 +108,4 @@ class SalesPersonHistory extends React.Component{
     }
 }
 export default SalesPersonHistory;
+

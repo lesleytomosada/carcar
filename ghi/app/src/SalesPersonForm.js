@@ -57,7 +57,7 @@ class SalesPersonForm extends React.Component {
             <div className="row">
                 <div className="offset-3 col-5">
                     <div className="shadow p-4 mt-4">
-                        <h1 class = "text-center">Add a New Sales Person</h1>
+                        <h1 className= "text-center">Add a New Sales Person</h1>
                         <form onSubmit={this.handleSubmit} id="create-salesperson-form">
                             <div className="form-floating mb-3">
                                 <input
@@ -85,8 +85,8 @@ class SalesPersonForm extends React.Component {
                                 />
                                 <label htmlFor="name">Employee Number</label>
                             </div>
-                            < div class= "d-flex justify-content-center">
-                            <button className="btn btn-success btn-default " type="submit" data-toggle="button">Submit</button>
+                            < div className= "d-flex justify-content-center">
+                                <button className="btn btn-success btn-default " type="submit" data-toggle="button">Submit</button>
                             </div>
                         </form>
                     </div>

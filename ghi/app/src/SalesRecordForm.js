@@ -109,21 +109,9 @@ class SalesRecordForm extends React.Component {
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
                 <h1>Add a new sales record</h1>
-                <form
-                  onSubmit={this.handleSubmit}
-                  id="create-salesrecord-form"
-                >
+                <form onSubmit={this.handleSubmit} id="create-salesrecord-form">
                   <div className="form-floating mb-3">
-                    <input
-                      onChange={this.handlePriceChange}
-                      value={this.state.price}
-                      placeholder="Price"
-                      required
-                      type="number"
-                      name="price"
-                      id="price"
-                      className="form-control"
-                    />
+                    <input onChange={this.handlePriceChange} value={this.state.price} placeholder="Price" required type="number"name="price"id="price" className="form-control"/>
                     <label htmlFor="price">Price</label>
                   </div>
                   <div className="mb-3">
@@ -136,9 +124,9 @@ class SalesRecordForm extends React.Component {
                       <option value="">Choose an automobile</option>
                       {this.state.automobiles.map((automobile) => {
                         return (
-                          <option key={automobile.href}
-                          value={JSON.stringify(automobile)}>
-                            {automobile.vin}
+                          <option key={automobile.href?.id}
+                          value={JSON.stringify(automobile?.id)}>
+                            {automobile.vin?.id}
                           </option>
                         );
                       })}
@@ -154,28 +142,19 @@ class SalesRecordForm extends React.Component {
 
                    {this.state.salespeople.map(salesperson => {
                             return (
-                                <option key={salesperson.employee_id}
-                                value={salesperson.employee_id}>
-                                {salesperson.name}
-                                </option>
+                              <option key={salesperson.employee_id?.id} value={salesperson.employee_id?.id}> {salesperson.name?.id} </option>
                             );
                     })}
                     </select>
                     <div>
                         </div>
                   <div className="mb-3">
-                    <select
-                      onChange={this.handleCustomerChange}
-                      required
-                      name="customer"
-                      id="customer"
-                      className="form-select"
-                    >
+                    <select onChange={this.handleCustomerChange} required name="customer" id="customer" className="form-select">
                       <option value="">Choose a customer</option>
-                      {this.state.customers.map((customer) => {
+                        {this.state.customers.map((customer) => {
                         return (
-                          <option key={customer.phone_number} value={customer.name}>
-                            {customer.name} - {customer.phone_number}
+                          <option key={customer.phone_number?.id} value={customer.name?.id}>
+                            {customer.name?.id} - {customer.phone_number?.id}
                           </option>
                         );
                       })}
@@ -190,11 +169,6 @@ class SalesRecordForm extends React.Component {
       </div>
 
         );
-                    }
+  }
     }
-
-
-
-
-
-    export default SalesRecordForm;
+export default SalesRecordForm;
