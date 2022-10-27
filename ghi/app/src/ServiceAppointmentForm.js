@@ -77,7 +77,6 @@ async handleSubmit(event){
         }
         this.setState(cleared);
     }
-    
 }
 
 async componentDidMount() {

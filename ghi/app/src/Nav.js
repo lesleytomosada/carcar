@@ -38,6 +38,10 @@ function Nav() {
                 <NavLink className="nav-link" to="/manufacturers">List Manufacturers</NavLink>
                 <NavLink className="nav-link" to="/manufacturers/new">Create Manufacturers</NavLink>
                 <NavLink className="nav-link" to="/models">List Models</NavLink>
+                <NavLink className="nav-link" to="/models/new">Create Model</NavLink>
+                <NavLink className="nav-link" to="/automobiles">List Automobiles</NavLink>
+                <NavLink className="nav-link" to="/automobiles/new">Create Automobiles</NavLink>
+
             </ul>
             </li>
             </ul>
