@@ -107,7 +107,9 @@ class AutomobileForm extends React.Component{
                     </select>
 
                   </div>
-                    <button className="btn btn-primary">Create</button>
+                <div className= "d-flex justify-content-center">
+                    <button className="btn btn-success btn-default">Create</button>
+                </div>
                 </form>
                 </div>
             </div>

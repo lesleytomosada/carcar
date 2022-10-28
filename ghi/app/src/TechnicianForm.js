@@ -62,7 +62,10 @@ class TechnicianForm extends React.Component {
                                 <input onChange={this.handleEmployeeNumberChange} placeholder="Employee Number" required type="text" value={this.state.employeeNumber} name="employee_number" id="employee_number" className="form-control" />
                                 <label htmlFor="employee_number">Employee Number</label>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <div className= "d-flex justify-content-center">
+                            <button className="btn btn-success btn-default">Create</button>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
