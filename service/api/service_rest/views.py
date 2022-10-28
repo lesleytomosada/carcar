@@ -72,7 +72,6 @@ def api_detail_service_appointments(request, pk):
     if request.method == "DELETE":
         count,_ = ServiceAppointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count>0})
-<<<<<<< HEAD
     else:
         try:
             content=json.loads(request.body)
@@ -91,5 +90,3 @@ def api_detail_service_appointments(request, pk):
             response = JsonResponse({"message":"Service Appointment Does not Exist"})
             response.status_code = 404
             return response
-=======
->>>>>>> main
