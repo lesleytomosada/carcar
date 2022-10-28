@@ -1,5 +1,5 @@
 # CarCar
-##Getting Started
+## Getting Started
 Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
 Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
 Step - 3 : After it is opened, you may then look around
@@ -101,7 +101,7 @@ Only the name is required to create or update the manufacturer:
 ```
 
 ### Sales Endpoints
-**Sales**
+**Sales and Sales people**
 Action | Method | URL
 --- | --- | ---
 List sales people | GET | http://localhost:8090/api/salespersons/
@@ -112,23 +112,23 @@ Delete a specific sale |DELETE| http://localhost:8090/api/sales/:id/
 List of all Sales |GET| http://localhost:8090/api/sales
 Create a new sale |POST| http://localhost:8090/api/sales/
 
-These can be used as samples to create sales data via Insomnia, if needed.
+These can be used as post samples to create sales data via Insomnia, if needed.
 
 **Create a Sale**
 
 ```
-	{
-			"price": 1000000.0,
-			"automobile": 1,
-			"sales_person": 17,
-			"customer": 9
+{
+	"price": 1000000.0,
+	"automobile": 1,
+	"sales_person": 17,
+	"customer": 9
 }
 ```
 **Create a new Sales Person**
 
 ```
-	{
-	"name1": "help",
+{
+    "name1": "help",
 	"employee_number": 69
 }
 
