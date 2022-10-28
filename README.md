@@ -39,7 +39,7 @@ The user interface was built using React and has the following pages which you c
 Challenges:
 Throughout this project I achieved a greater understanding of how the frontend and backend work together, however in the future I would take more time to plan out my approach to the project. For example, what do I want the user to experience, what is that page called, how does it look? I built this project backend to front, making decisions on naming, style and sometimes functionality as I went and ran into errors. I feel like if I would have spent more time in the beginning imagining front-end to back-end while also jotting down some rules for myself that I would like to follow when it comes to naming variables I could have saved myself a lot of time chasing errors.
 
-## Service API Overview:
+## Service API Overview
 
 The service API tracks service appointments for cars and owners
 Technician Tracking: http://localhost:3000/technician/new/
@@ -51,7 +51,7 @@ Service History: http://localhost:3000/serviceappointment/history
 Within the service app is also the ability to track a car's service history by VIN number. The list view for this functionality is identical to the appointment tracking view, but shows appointments for a specific car both, both past and present.
 
 
-## Sales Overview:
+## Sales Overview
 
 The Sales Api allows you to track customers, sales made, as well as adding and search old and new sales
 Sales API Overview
@@ -92,6 +92,13 @@ Update a specific manufacturer|PUT|	http://localhost:8100/api/manufacturers/:id/
 Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:id/
 
 These can be used as samples to create inventory data via Insomnia, if needed. 
+
 **Create a Manufacturer**
+
+Only the name is required to update the manufacturer: 
+
+{
+  "name": "Chrysler"
+}
 
 **Update a Manufacturer**
