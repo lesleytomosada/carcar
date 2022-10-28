@@ -35,3 +35,101 @@ Frontend:
 The user interface was built using React and has the following pages which you can access from the navigation bar, Add Sales Person, List Sales Person, Add Potential Customer, List Sales History, and Create Sales record.
 Challenges:
 Throughout this project I achieved a greater understanding of how the frontend and backend work together, however in the future I would take more time to plan out my approach to the project. For example, what do I want the user to experience, what is that page called, how does it look? I built this project backend to front, making decisions on naming, style and sometimes functionality as I went and ran into errors. I feel like if I would have spent more time in the beginning imagining front-end to back-end while also jotting down some rules for myself that I would like to follow when it comes to naming variables I could have saved myself a lot of time chasing errors.
+
+# Service API Overview:
+
+The service API tracks service appointments for cars and owners
+Technician Tracking: http://localhost:3000/technician/new/
+A form allows a user to enter a technician's identification details like name and employee number. This form is accessible through the nav bar.
+Appointment Tracking: http://localhost:3000/serviceappointment/list , http://localhost:3000/serviceappointment/new/
+A form allows a service advisor to enter the details of a vehicle and it's customer, such as: VIN, customer name, date/time of appointment, technician assigned, and reason for visit. This form is accessible through the nav bar.
+The service section of the app shows a list of appointments, including all of the details related to the appointment. The list also includes the option to cancel an appointment or finish it (need to look up some details on how to handle this).
+Service History: http://localhost:3000/serviceappointment/history
+Within the service app is also the ability to track a car's service history by VIN number. The list view for this functionality is identical to the appointment tracking view, but shows appointments for a specific car both, both past and present.
+
+
+# Sales Overview:
+
+The Sales Api allows you to track customers, sales made, as well as adding and search old and new sales
+Sales API Overview
+New Customer: http://localhost:3000/customers/
+Ability to add a new customer to the system
+New Sales Representative: http://localhost:3000/salespersons/create/
+Add new employees to the system
+New Sales: http://localhost:3000/salespersons/
+Keep track of new sales being made.
+Keep track of sales done by each employee.
+All Sales: http://localhost:3000/saleshistory/
+Keep track of all the sales done.
+
+
+# Inventory API Overview:
+The Inventory API allows you to add new vehicles, view all available vehicles, add and view manufacturers, as well as add and view models.
+New Manufacturer: http://localhost:3000/manufacturers/new/
+Add a new car brand.
+All Manufacturers: http://localhost:3000/manufacturers/
+View all car brands in the database.
+New Vehicle Model: http://localhost:3000/models/new/
+Add a new vehicle model
+All Models: http://localhost:3000/models/
+View all vehicle models
+New Automobile: http://localhost:3000/automobiles/new/
+Add a new car that comes in.
+All Automobiles: http://localhost:3000/automobiles/
+View all the Cars available in the dealership.
+
+### Inventory Endpoints
+**Manufacturers**
+Action | Method | URL
+--- | --- | ---
+List manufacturers | GET | http://localhost:8100/api/manufacturers/
+Create a manufacturer|POST|	http://localhost:8100/api/manufacturers/
+Get a specific manufacturer|GET|http://localhost:8100/api/manufacturers/:id/
+Update a specific manufacturer|PUT|	http://localhost:8100/api/manufacturers/:id/
+Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:id/
+
+These can be used as samples to create inventory data via Insomnia, if needed.
+
+**Create a Manufacturer**
+
+Only the name is required to create or update the manufacturer:
+
+```
+{
+  "name": "Honda"
+}
+```
+
+### Sales Endpoints
+**Sales**
+Action | Method | URL
+--- | --- | ---
+List sales people | GET | http://localhost:8090/api/salespersons/
+Create a new sale person |POST|	http://localhost:8090/api/salespersons/
+Get a specific sale |GET| http://localhost:8090/api/sales/:id/
+Update a specific sale |PUT| http://localhost:8090/api/sales/:id/
+Delete a specific sale |DELETE| http://localhost:8090/api/sales/:id/
+List of all Sales |GET| http://localhost:8090/api/sales
+Create a new sale |POST| http://localhost:8090/api/sales/
+
+These can be used as samples to create sales data via Insomnia, if needed.
+
+**Create a Sale**
+
+```
+	{
+			"price": 1000000.0,
+			"automobile": 1,
+			"sales_person": 17,
+			"customer": 9
+}
+```
+**Create a new Sales Person**
+
+```
+	{
+	"name1": "help",
+	"employee_number": 69
+}
+
+ ```
