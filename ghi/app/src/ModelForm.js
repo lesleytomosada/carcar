@@ -47,7 +47,7 @@ async handleSubmit(event){
         }
         this.setState(cleared);
     }
-    
+
 }
 
 
@@ -89,7 +89,7 @@ async componentDidMount() {
                         )
                       })}
                     </select>
-    
+
                   </div>
                   <div className= "d-flex justify-content-center">
                             <button className="btn btn-success btn-default">Create</button>

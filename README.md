@@ -1,11 +1,20 @@
 # CarCar
 ## Getting Started
+<<<<<<< HEAD
 Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
 Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
 Step - 3 : After it is opened, you may then look around
 Step - 4 : In terminal run `docker volume create beta-data`, then `docker compose up --build`, this will create all docker containers required to run the application
 Step - 5 : You can now open localhost:3000 to use said application
 Step - 6 : Keep reading to see how this application is used.
+=======
+* Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
+* Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
+* Step - 3 : After it is opened, you may then look around
+* Step - 4 : In terminal run docker volume create beta-data, then docker compose up --build, this will * * create all docker containers required to run the application
+* Step - 5 : You can now open localhost:3000 to use said application
+* Step - 6 : Read about how this application is used
+>>>>>>> sales
 
 Team:
 
@@ -126,11 +135,11 @@ Get a specific manufacturer|GET|http://localhost:8100/api/manufacturers/:id/
 Update a specific manufacturer|PUT|	http://localhost:8100/api/manufacturers/:id/
 Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:id/
 
-These can be used as samples to create inventory data via Insomnia, if needed. 
+These can be used as samples to create inventory data via Insomnia, if needed.
 
 **Create or Update a Manufacturer**
 
-Only the name is required to create or update the manufacturer: 
+Only the name is required to create or update the manufacturer:
 
 ```
 {
@@ -149,7 +158,7 @@ Delete a specific model|DELETE|http://localhost:8100/api/models/:id/
 
 **Create a Model**
 
-Creating a model requires the name, a picture url, and the manufacturer id. 
+Creating a model requires the name, a picture url, and the manufacturer id.
 ```
 {
   "name": "Civic",
@@ -160,7 +169,7 @@ Creating a model requires the name, a picture url, and the manufacturer id.
 
 **Update a Model**
 
-Name and/or picture can be used to update the model. 
+Name and/or picture can be used to update the model.
 ```
 {
   "name": "Civic",
@@ -179,7 +188,7 @@ Delete a specific automobile|DELETE|http://localhost:8100/api/automobiles/:vin/
 
 **Create an Automobile**
 
-Creating an automobile requires color, year, vin, and model_id. 
+Creating an automobile requires color, year, vin, and model_id.
 ```
 {
   "color": "blue",
@@ -191,7 +200,7 @@ Creating an automobile requires color, year, vin, and model_id.
 
 **Updating an Automobile**
 
-The color and/or year can be used to update the model. 
+The color and/or year can be used to update the model.
 ```
 {
   "color": "blue",

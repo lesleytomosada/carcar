@@ -39,14 +39,13 @@ class SalesPersonHistory extends React.Component{
 
         if (saleHistoryResponse.ok) {
             const saleHistoryData = await saleHistoryResponse.json();
-            console.log("THIS IS THE SALES HISTORY", saleHistoryData)
+
 
             if (this.state.salesperson === "") {
                 this.setState({sales_history: saleHistoryData.sales_history});
 
             } else {
                 let filteredSaleRecordList = [];
-                console.log("yyyyyyyyyyyy",saleHistoryData.sales_history,)
                 for (const sale_record of saleHistoryData.sales_history) {
 
                     if (String(sale_record.sales_person.id) === this.state.salesperson) {
