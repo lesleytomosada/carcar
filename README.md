@@ -82,6 +82,7 @@ All Automobiles: http://localhost:3000/automobiles/
 View all the Cars available in the dealership.
 
 ### Inventory Endpoints
+**Manufacturers**
 Action | Method | URL
 --- | --- | ---
 List manufacturers | GET | http://localhost:8100/api/manufacturers/
@@ -90,5 +91,6 @@ Get a specific manufacturer|GET|http://localhost:8100/api/manufacturers/:id/
 Update a specific manufacturer|PUT|	http://localhost:8100/api/manufacturers/:id/
 Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:id/
 
-### Inventory Sample Data
 These can be used as samples to create inventory data via Insomnia, if needed. 
+**Create a Manufacturer**
+**Update a Manufacturer**
