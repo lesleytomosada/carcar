@@ -2,7 +2,22 @@ import React from "react"
 
 class AppointmentList extends React.Component {
 
+constructor(props){
+    super(props)
+    this.state={
+        service_appointments:[],
+    }
+    this.deleteServiceAppointment=this.deleteServiceAppointment.bind(this)
+    this.handleCompletion=this.handleCompletion.bind(this)
+    this.getData=this.getData.bind(this)
+
+}
+
 async componentDidMount(){
+this.getData()
+}
+
+async getData(){
     const url ='http://localhost:8080/api/serviceappointments/'
     const response= await fetch (url)
     console.log(response)
@@ -42,7 +57,8 @@ async handleCompletion(service_appointment){
     if (response.ok){
         const completedAppointment = await response.json()
         console.log(completedAppointment)
-        window.location.reload()
+        // window.location.reload()
+        this.getData()
     }
 
 }
