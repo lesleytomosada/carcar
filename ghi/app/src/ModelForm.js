@@ -41,10 +41,10 @@ async handleSubmit(event){
         },
     }
     const response = await fetch(modelUrl, fetchConfig)
-    console.log("RESPONSE:",response)
+
     if (response.ok) {
         const newModel = await response.json()
-        console.log(newModel)
+
 
         const cleared = {
             name: '',
@@ -53,7 +53,7 @@ async handleSubmit(event){
         }
         this.setState(cleared);
     }
-    
+
 }
 
 
@@ -61,13 +61,11 @@ async componentDidMount() {
     const url = 'http://localhost:8100/api/manufacturers/'
 
     const response = await fetch(url);
-    console.log(response)
 
     if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({manufacturers: data.manufacturers})
-        console.log("THIS.STATE.MANUF",this.state.manufacturers)
+
     }
 };
 
@@ -97,7 +95,7 @@ async componentDidMount() {
                         )
                       })}
                     </select>
-    
+
                   </div>
                     <button className="btn btn-primary">Create</button>
                 </form>
