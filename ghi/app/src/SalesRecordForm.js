@@ -45,12 +45,12 @@ class SalesRecordForm extends React.Component {
         };
         console.log("YYYYYY", data)
         const salesresponse = await fetch(salesUrl, fetchConfig);
-        console.log("after",data)
-        
+        console.log("after", data)
+
         if (salesresponse.ok) {
           const cleared = {
               automobile: "",
-              salesperson: "",
+              sales_person: "",
               customer: "",
               price: "",
           };
@@ -129,14 +129,14 @@ class SalesRecordForm extends React.Component {
                   <select
                     onChange={this.handleAutomobileChange}
                     required name="automobile"
-
+                    value={this.state.automobile}
                     id="automobile"
                     className="form-select">
                     <option value="">Choose an automobile</option>
                     {this.state.automobiles.map((automobile) => {
                       return (
                         <option key={automobile.id}
-                        value={automobile.id}>
+                        value={automobile.vin}>
                           {automobile.vin}
                         </option>
                       );
@@ -147,6 +147,7 @@ class SalesRecordForm extends React.Component {
                 <div className="mb-3">
                   <select onChange={this.handleSalespersonChange}
                   required name="salesperson"
+                  value={this.state.sales_person}
                   id="salesperson"
                   className="form-select">
                  <option value="">Choose a Sales Person</option>
@@ -164,8 +165,8 @@ class SalesRecordForm extends React.Component {
                 <div className="mb-3">
                   <select
                     onChange={this.handleCustomerChange}
-                    required
-                    name="customer"
+                    required name="customer"
+                    value={this.state.customer}
                     id="customer"
                     className="form-select"
                   >

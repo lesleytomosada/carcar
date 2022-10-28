@@ -174,24 +174,25 @@ def list_sales(request):
     #        Check for Automobile info        #
         try:
             #vin the request set to all of the content in automobileVo
-            # automobile = content["automobile"]
-            print("***********",content)
-            content["automobile"] = AutomobileVO.objects.get(id=content["automobile"])
+            automobile = content["automobile"]
+            automobile1 = AutomobileVO.objects.get(vin=automobile)
+            content["automobile"] = automobile1
 
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
             {"message": "Automobile does not exist"},
             status_code = 404
             )
+
         #        Check for Sales Person info       #
         try:
-            name1 = content["sales_person"]
-            sales_person = Salesperson.objects.get(id=name1)
+            name = content["sales_person"]
+            sales_person = Salesperson.objects.get(id=name)
             content["sales_person"] = sales_person
         except Salesperson.DoesNotExist:
             return JsonResponse(
             {"message": "Sales Person does not exist"},
-            status_code = 404
+            status = 404
             )
         #        Check for Customer info        #
         try:
@@ -201,7 +202,7 @@ def list_sales(request):
         except Customer.DoesNotExist:
             return JsonResponse(
             {"message": "Customer does not exist"},
-            status_code = 404
+            status = 404
             )
         #        Check for Sales History info       #
         sales_history = SalesHistory.objects.create(**content)
@@ -250,7 +251,7 @@ def show_sales(request, pk):
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Automobile does not exist"},
-                status_code = 404
+                status= 404
             )
         #        Check for Sales Person info       #
         try:
