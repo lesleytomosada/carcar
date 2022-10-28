@@ -26,12 +26,9 @@ class TargetedRecords extends React.Component {
         const url = "http://localhost:8090/api/salesrecords/";
         const salesResponse = await fetch(salesUrl);
         const response = await fetch(url);
-        console.log(response)
-
         if (response.ok && salesResponse.ok) {
             const saleData = await salesResponse.json();
             const data = await response.json();
-            console.log(data)
 
 
 
@@ -58,7 +55,6 @@ class TargetedRecords extends React.Component {
           const response = await fetch(fetchConfig);
           if (response.ok) {
             const newName = await response.json();
-            console.log(newName)
             const cleared = {
               salesRep: ''
             }
