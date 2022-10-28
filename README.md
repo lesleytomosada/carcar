@@ -93,4 +93,5 @@ Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:i
 
 These can be used as samples to create inventory data via Insomnia, if needed. 
 **Create a Manufacturer**
+
 **Update a Manufacturer**
