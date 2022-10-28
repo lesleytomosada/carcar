@@ -43,13 +43,13 @@ class SalesPersonHistory extends React.Component{
 
             if (this.state.salesperson === "") {
                 this.setState({sales_history: saleHistoryData.sales_history});
-                // console.log('THIS IS THE SALES', saleHistoryData.sales_history)
+
             } else {
                 let filteredSaleRecordList = [];
                 console.log("yyyyyyyyyyyy",saleHistoryData.sales_history,)
                 for (const sale_record of saleHistoryData.sales_history) {
-                    // console.log("xxxxxxx",filteredSaleRecordList)
-                    if (String(sale_record.sales_person.employee_number) === this.state.salesperson) {
+
+                    if (String(sale_record.sales_person.id) === this.state.salesperson) {
                         filteredSaleRecordList.push(sale_record);
                     }
                 }

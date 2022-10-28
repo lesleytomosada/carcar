@@ -46,13 +46,15 @@ class SalesRecordForm extends React.Component {
         console.log("YYYYYY", data)
         const salesresponse = await fetch(salesUrl, fetchConfig);
         console.log("after",data)
+        
         if (salesresponse.ok) {
-            this.setState({
-                automobile: "",
-                salesperson: "",
-                customer: "",
-                price: "",
-            });
+          const cleared = {
+              automobile: "",
+              salesperson: "",
+              customer: "",
+              price: "",
+          };
+            this.setState(cleared);
         }
     }
 

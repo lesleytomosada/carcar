@@ -31,9 +31,9 @@ class CustomerForm extends React.Component {
 
         if (response.ok) {
             const cleared = {
-                name: '',
-                address: '',
-                phone_number: '',
+                name: "",
+                address: "",
+                phone_number: "",
             };
             this.setState(cleared);
         }
@@ -90,7 +90,7 @@ class CustomerForm extends React.Component {
                                 <input
                                   className="form-control"
                                   onChange={this.handlePhoneNumberChange}
-                                  value={this.state.phoneNumber}
+                                  value={this.state.phone_number}
                                   placeholder="Customer's phone_number"
                                   required
                                   type="text"

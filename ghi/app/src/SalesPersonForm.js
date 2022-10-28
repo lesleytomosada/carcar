@@ -61,7 +61,7 @@ class SalesPersonForm extends React.Component {
                                 <input
                                   className="form-control"
                                   onChange={this.handleNameChange}
-                                  value={this.state.name}
+                                  value={this.state.name1}
                                   placeholder="Sales Person Name"
                                   required
                                   type="text"
