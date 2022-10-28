@@ -58,7 +58,7 @@ class CustomerForm extends React.Component {
             <div className="row">
                 <div className="offset-3 col-5">
                     <div className="shadow p-4 mt-4">
-                        <h1 className= "text-center">Add a Potential Customer</h1>
+                        <h1 className= "text-center">Create a Potential Customer</h1>
                         <form onSubmit={this.handleSubmit} id="create-salesperson-form">
                             <div className="form-floating mb-3">
                                 <input

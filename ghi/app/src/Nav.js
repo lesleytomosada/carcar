@@ -14,9 +14,9 @@ function Nav() {
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Sales</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink className="nav-link" aria-current="page" to="/salespersons/create">Add Sales Person</NavLink>
+              <NavLink className="nav-link" aria-current="page" to="/salespersons/create">Create a Sales Person</NavLink>
               <NavLink className="nav-link" aria-current="page" to="/salespersons">List Sales People</NavLink>
-              <NavLink className="nav-link" aria-current="page" to="/customers">Add Potential Customer</NavLink>
+              <NavLink className="nav-link" aria-current="page" to="/customers">Create a Potential Customer</NavLink>
               <NavLink className="nav-link" aria-current="page" to="/saleshistory">List Sales History</NavLink>
               <NavLink className="nav-link" aria-current="page" to="/sales">Create a Sale Record</NavLink>
             </ul>
@@ -25,8 +25,8 @@ function Nav() {
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Service</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink className="nav-link" aria-current="page" to="/technician/new">Add Technician</NavLink>
-              <NavLink className="nav-link" aria-current="page" to="serviceappointment/new">Add Service Appointment</NavLink>
+              <NavLink className="nav-link" aria-current="page" to="/technician/new">Create a Technician</NavLink>
+              <NavLink className="nav-link" aria-current="page" to="serviceappointment/new">Create a Service Appointment</NavLink>
               <NavLink className="nav-link" aria-current="page" to="serviceappointment/list">Service Appointments List</NavLink>
               <NavLink className="nav-link" aria-current="page" to="serviceappointment/history">Service Appointment History</NavLink>
             </ul>
@@ -36,11 +36,11 @@ function Nav() {
                 aria-expanded="false">Inventory</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink className="nav-link" to="/manufacturers">List Manufacturers</NavLink>
-                <NavLink className="nav-link" to="/manufacturers/new">Create Manufacturers</NavLink>
+                <NavLink className="nav-link" to="/manufacturers/new">Create a Manufacturers</NavLink>
                 <NavLink className="nav-link" to="/models">List Models</NavLink>
-                <NavLink className="nav-link" to="/models/new">Create Model</NavLink>
+                <NavLink className="nav-link" to="/models/new">Create a Model</NavLink>
                 <NavLink className="nav-link" to="/automobiles">List Automobiles</NavLink>
-                <NavLink className="nav-link" to="/automobiles/new">Create Automobiles</NavLink>
+                <NavLink className="nav-link" to="/automobiles/new">Create an Automobiles</NavLink>
 
             </ul>
             </li>
