@@ -93,9 +93,9 @@ Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:i
 
 These can be used as samples to create inventory data via Insomnia, if needed. 
 
-**Create a Manufacturer**
+**Create or Update a Manufacturer**
 
-Only the name is required to update the manufacturer: 
+Only the name is required to create or update the manufacturer: 
 
 ```
 {
@@ -103,4 +103,63 @@ Only the name is required to update the manufacturer:
 }
 ```
 
-**Update a Manufacturer**
+**Models**
+Action | Method | URL
+--- | --- | ---
+List models|GET|http://localhost:8100/api/models/
+Create a model|POST|http://localhost:8100/api/models/
+Get a specific model|GET|http://localhost:8100/api/models/:id/
+Update a specific model|PUT|http://localhost:8100/api/models/:id/
+Delete a specific model|DELETE|http://localhost:8100/api/models/:id/
+
+**Create a Model**
+
+Creating a model requires the name, a picture url, and the manufacturer id. 
+```
+{
+  "name": "Civic",
+  "picture_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/15455/2021-Honda-Civic-front_15455_032_1984x763_BS_cropped.png",
+  "manufacturer_id": 1
+}
+```
+
+**Update a Model**
+
+Name and/or picture can be used to update the model. 
+```
+{
+  "name": "Civic",
+  "picture_url": "https://s.aolcdn.com/os/ab/_cms/2022/10/19200114/Honda-Civic-Sport-Touring.jpg",
+}
+```
+
+**Automobiles**
+Action | Method | URL
+--- | --- | ---
+List automobiles|GET|http://localhost:8100/api/automobiles/
+Create an automobile|POST|http://localhost:8100/api/automobiles/
+Get a specific automobile|GET|http://localhost:8100/api/automobiles/:vin/
+Update a specific automobile|PUT|http://localhost:8100/api/automobiles/:vin/
+Delete a specific automobile|DELETE|http://localhost:8100/api/automobiles/:vin/
+
+**Create an Automobile**
+
+Creating an automobile requires color, year, vin, and model_id. 
+```
+{
+  "color": "blue",
+  "year": 2012,
+  "vin": "3TMMU4FN8CM049190",
+  "model_id": 1
+}
+```
+
+**Updating an Automobile**
+
+The color and/or year can be used to update the model. 
+```
+{
+  "color": "blue",
+  "year": 2011
+}
+```
