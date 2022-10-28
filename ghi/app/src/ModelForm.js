@@ -7,7 +7,7 @@ class ModelForm extends React.Component{
         this.state={
             name: '',
             pictureUrl:'',
-            manufacturer:'',
+            // manufacturer:'',
             manufacturers:[],
         }
         this.handleChange=this.handleChange.bind(this)
@@ -49,7 +49,7 @@ async handleSubmit(event){
         const cleared = {
             name: '',
             pictureUrl:'',
-            manufacturer:'',
+            manufacturers:[],
         }
         this.setState(cleared);
     }

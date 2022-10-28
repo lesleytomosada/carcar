@@ -5,11 +5,10 @@ class ServiceAppointmentForm extends React.Component {
 constructor(props){
     super(props)
     this.state={
-        vin: '',
+        vin:'',
         ownerName:'',
         dateAndTime:'',
         serviceReason:'',
-        technician:'',
         technicians:[],
     }
     this.handleVinChange=this.handleVinChange.bind(this)
@@ -68,12 +67,12 @@ async handleSubmit(event){
         const newServiceAppointment = await response.json()
         console.log(newServiceAppointment)
 
-        const cleared = {
-            vin: '',
-            ownerName:'',
-            dateAndTime:'',
-            serviceReason:'',
-            technician:'',
+        const cleared={
+            vin:"",
+            ownerName:"",
+            dateAndTime:"",
+            serviceReason:"",
+            technicians:[],
         }
         this.setState(cleared);
     }
@@ -100,19 +99,19 @@ render() {
             <h1>Create a New Service Appointment</h1>
             <form onSubmit={this.handleSubmit} id="create-service-appointment-form">
                 <div className="form-floating mb-3">
-                <input onChange={this.handleVinChange} placeholder="Vin" required type="text" name="vin" id="vin" className="form-control"/>
+                <input onChange={this.handleVinChange} placeholder="Vin" required type="text" value={this.state.vin} name="vin" id="vin" className="form-control"/>
                 <label htmlFor="vin">VIN</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={this.handleOwnerNameChange} placeholder="Owner Name" required type="text" name="owner_name" id="owner_name" className="form-control"/>
+                <input onChange={this.handleOwnerNameChange} placeholder="Owner Name" required type="text" value={this.state.ownerName} name="owner_name" id="owner_name" className="form-control"/>
                 <label htmlFor="owner_name">Owner Name</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={this.handleDateAndTimeChange} placeholder="Date and Time" required type="datetime-local" name="date_and_time" id="date_and_time" className="form-control"/>
+                <input onChange={this.handleDateAndTimeChange} placeholder="Date and Time" required type="datetime-local" value={this.state.dateAndTime} name="date_and_time" id="date_and_time" className="form-control"/>
                 <label htmlFor="date_and_time">Date and Time</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={this.handleServiceReasonChange} placeholder="Service Reason" required type="text" name="service_reason" id="service_reason" className="form-control"/>
+                <input onChange={this.handleServiceReasonChange} placeholder="Service Reason" required type="text" name="service_reason" value={this.state.serviceReason} id="service_reason" className="form-control"/>
                 <label htmlFor="service_reason">Service Reason</label>
                 </div>
                 <div className="mb-3">

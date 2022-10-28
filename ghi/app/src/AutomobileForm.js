@@ -7,7 +7,6 @@ class AutomobileForm extends React.Component{
             vin: '',
             color:'',
             year:'',
-            model:[],
             models:[],
         }
         this.handleVinChange=this.handleVinChange.bind(this)
@@ -70,7 +69,7 @@ class AutomobileForm extends React.Component{
                 vin: "",
                 color:"",
                 year:"",
-                model:"",
+                models:[],
             });
 
         }

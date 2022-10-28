@@ -1,4 +1,5 @@
 # CarCar
+##Getting Started
 Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
 Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
 Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
@@ -8,8 +9,8 @@ Step - 6 : Go to ## Design to read about how this application is used.
 
 Team:
 
-* Person 1 - Which microservice?
-* Tyler - Sales
+* Lesley Tomosada - Service
+* Tyler Dempsey- Sales
 
 ## Design
 

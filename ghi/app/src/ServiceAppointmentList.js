@@ -87,7 +87,8 @@ render(){
                                     <td>{service_appointment.vin}</td>
                                     <td>{service_appointment.owner_name}</td>
                                     <td>{service_appointment.is_vip===true? "*":""}</td>
-                                    <td>{service_appointment.date_and_time}</td>
+                                    <td>{new Date(service_appointment.date_and_time).toLocaleDateString()}&nbsp;
+                                        {new Date(service_appointment.date_and_time).toLocaleTimeString()}</td>
                                     <td>{service_appointment.technician}</td>
                                     <td>{service_appointment.service_reason}</td>
                                     <td>
