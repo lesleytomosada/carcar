@@ -36,11 +36,11 @@ function Nav() {
                 aria-expanded="false">Inventory</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink className="nav-link" to="/manufacturers">List Manufacturers</NavLink>
-                <NavLink className="nav-link" to="/manufacturers/new">Create a Manufacturers</NavLink>
+                <NavLink className="nav-link" to="/manufacturers/new">Create a Manufacturer</NavLink>
                 <NavLink className="nav-link" to="/models">List Models</NavLink>
                 <NavLink className="nav-link" to="/models/new">Create a Model</NavLink>
                 <NavLink className="nav-link" to="/automobiles">List Automobiles</NavLink>
-                <NavLink className="nav-link" to="/automobiles/new">Create an Automobiles</NavLink>
+                <NavLink className="nav-link" to="/automobiles/new">Create an Automobile</NavLink>
 
             </ul>
             </li>

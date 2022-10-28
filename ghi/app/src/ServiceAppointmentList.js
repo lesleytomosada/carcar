@@ -20,11 +20,9 @@ this.getData()
 async getData(){
     const url ='http://localhost:8080/api/serviceappointments/'
     const response= await fetch (url)
-    console.log(response)
     if (response.ok) {
         const data = await response.json()
         this.setState({service_appointments: data.service_appointments})
-        console.log("state",this.state)
     }
 }
 

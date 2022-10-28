@@ -7,7 +7,6 @@ class ModelForm extends React.Component{
         this.state={
             name: '',
             pictureUrl:'',
-            // manufacturer:'',
             manufacturers:[],
         }
         this.handleChange=this.handleChange.bind(this)
@@ -31,7 +30,6 @@ async handleSubmit(event){
         "manufacturer_id": manufacturer,
     }
 
-    console.log("DATA::::",data)
     const modelUrl="http://localhost:8100/api/models/"
     const fetchConfig = {
         method: "post",
@@ -41,12 +39,8 @@ async handleSubmit(event){
         },
     }
     const response = await fetch(modelUrl, fetchConfig)
-    console.log("RESPONSE:",response)
     if (response.ok) {
-        const newModel = await response.json()
-        console.log(newModel)
-
-        const cleared = {
+           const cleared = {
             name: '',
             pictureUrl:'',
             manufacturers:[],
@@ -61,13 +55,11 @@ async componentDidMount() {
     const url = 'http://localhost:8100/api/manufacturers/'
 
     const response = await fetch(url);
-    console.log(response)
 
     if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({manufacturers: data.manufacturers})
-        console.log("THIS.STATE.MANUF",this.state.manufacturers)
+
     }
 };
 

@@ -65,7 +65,6 @@ async handleSubmit(event){
     const response = await fetch(technicianUrl, fetchConfig)
     if (response.ok) {
         const newServiceAppointment = await response.json()
-        console.log(newServiceAppointment)
 
         const cleared={
             vin:"",
@@ -82,11 +81,9 @@ async componentDidMount() {
     const url = 'http://localhost:8080/api/technicians/';
 
     const response = await fetch(url);
-    console.log(response)
 
     if (response.ok) {
         const data = await response.json();
-        console.log(data)
         this.setState({technicians: data.technicians})
     }
 };

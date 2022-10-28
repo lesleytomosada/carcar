@@ -23,26 +23,8 @@ class ServiceHistory extends React.Component {
     async handleSearch(event){
         const value = event.target.value;
         this.setState({vin:value})
-        console.log("CHECKSETSTATE",this.state)
+
     }
-
-    // async handleSubmit(event){
-    //     event.preventDefault()
-    //     const url='http://localhost:8080/api/serviceappointments/'
-    //     const response = await fetch(url)
-    //     const vin = this.state.vin
-    //     if (response.ok) {
-    //         const ServiceAppointment = await response.json()
-    //         console.log("SERV",ServiceAppointment)
-    //         console.log(this.state)
-
-    //         const filtered = {
-    //             vin:vin
-    //         }
-    //         console.log(filtered)
-    //         this.setState(filtered)
-    //     }
-    // }
 
     async handleSubmit(event){
         event.preventDefault()

@@ -62,9 +62,7 @@ class AutomobileForm extends React.Component{
         };
 
         const autoresponse = await fetch(autoUrl, fetchConfig)
-        console.log("RESPONSEEE",autoresponse)
         if (autoresponse.ok){
-            const newAutomobile = await autoresponse.json()
             this.setState({
                 vin: "",
                 color:"",
