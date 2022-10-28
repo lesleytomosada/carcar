@@ -65,6 +65,41 @@ Keep track of sales done by each employee.
 All Sales: http://localhost:3000/saleshistory/
 Keep track of all the sales done.
 
+### Sales Endpoints
+#### Sales and Sales people
+Action | Method | URL
+--- | --- | ---
+List sales people | GET | http://localhost:8090/api/salespersons/
+Create a new sale person |POST|	http://localhost:8090/api/salespersons/
+Get a specific sale |GET| http://localhost:8090/api/sales/:id/
+Update a specific sale |PUT| http://localhost:8090/api/sales/:id/
+Delete a specific sale |DELETE| http://localhost:8090/api/sales/:id/
+List of all Sales |GET| http://localhost:8090/api/sales
+Create a new sale |POST| http://localhost:8090/api/sales/
+
+These can be used as post samples to create sales data via Insomnia, if needed.
+
+**Create a new Sales Person**
+
+```
+{
+    "name1": "your name",
+	"employee_number": 1
+}
+
+ ```
+
+**Create a Sale**
+
+```
+{
+	"price": 1000000.0,
+	"automobile": 1,
+	"sales_person": 1,
+	"customer": 1
+}
+```
+
 
 ## Inventory API Overview:
 The Inventory API allows you to add new vehicles, view all available vehicles, add and view manufacturers, as well as add and view models.
