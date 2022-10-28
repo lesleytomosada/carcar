@@ -63,7 +63,7 @@ All Sales: http://localhost:3000/saleshistory/
 Keep track of all the sales done.
 
 ### Sales Endpoints
-**Sales and Sales people**
+#### Sales and Sales people**
 Action | Method | URL
 --- | --- | ---
 List sales people | GET | http://localhost:8090/api/salespersons/
@@ -76,29 +76,31 @@ Create a new sale |POST| http://localhost:8090/api/sales/
 
 These can be used as post samples to create sales data via Insomnia, if needed.
 
+**Create a new Sales Person**
+
+```
+{
+    "name1": "your name",
+	"employee_number": 1
+}
+
+ ```
+
 **Create a Sale**
 
 ```
 {
 	"price": 1000000.0,
 	"automobile": 1,
-	"sales_person": 17,
-	"customer": 9
+	"sales_person": 1,
+	"customer": 1
 }
 ```
-**Create a new Sales Person**
-
-```
-{
-    "name1": "help",
-	"employee_number": 69
-}
-
- ```
 
 
 
-# Inventory API Overview:
+
+## Inventory API Overview:
 The Inventory API allows you to add new vehicles, view all available vehicles, add and view manufacturers, as well as add and view models.
 New Manufacturer: http://localhost:3000/manufacturers/new/
 Add a new car brand.
@@ -114,7 +116,7 @@ All Automobiles: http://localhost:3000/automobiles/
 View all the Cars available in the dealership.
 
 ### Inventory Endpoints
-**Manufacturers**
+#### Manufacturers
 Action | Method | URL
 --- | --- | ---
 List manufacturers | GET | http://localhost:8100/api/manufacturers/
@@ -125,12 +127,73 @@ Delete a specific manufacturer|DELETE|http://localhost:8100/api/manufacturers/:i
 
 These can be used as samples to create inventory data via Insomnia, if needed.
 
-**Create a Manufacturer**
+**Create or Update a Manufacturer**
 
 Only the name is required to create or update the manufacturer:
 
 ```
 {
   "name": "Honda"
+}
+```
+
+#### Models
+Action | Method | URL
+--- | --- | ---
+List models|GET|http://localhost:8100/api/models/
+Create a model|POST|http://localhost:8100/api/models/
+Get a specific model|GET|http://localhost:8100/api/models/:id/
+Update a specific model|PUT|http://localhost:8100/api/models/:id/
+Delete a specific model|DELETE|http://localhost:8100/api/models/:id/
+
+**Create a Model**
+
+Creating a model requires the name, a picture url, and the manufacturer id.
+```
+{
+  "name": "Civic",
+  "picture_url": "https://file.kelleybluebookimages.com/kbb/base/evox/CP/15455/2021-Honda-Civic-front_15455_032_1984x763_BS_cropped.png",
+  "manufacturer_id": 1
+}
+```
+
+**Update a Model**
+
+Name and/or picture can be used to update the model.
+```
+{
+  "name": "Civic",
+  "picture_url": "https://s.aolcdn.com/os/ab/_cms/2022/10/19200114/Honda-Civic-Sport-Touring.jpg",
+}
+```
+
+#### Automobiles
+Action | Method | URL
+--- | --- | ---
+List automobiles|GET|http://localhost:8100/api/automobiles/
+Create an automobile|POST|http://localhost:8100/api/automobiles/
+Get a specific automobile|GET|http://localhost:8100/api/automobiles/:vin/
+Update a specific automobile|PUT|http://localhost:8100/api/automobiles/:vin/
+Delete a specific automobile|DELETE|http://localhost:8100/api/automobiles/:vin/
+
+**Create an Automobile**
+
+Creating an automobile requires color, year, vin, and model_id.
+```
+{
+  "color": "blue",
+  "year": 2012,
+  "vin": "3TMMU4FN8CM049190",
+  "model_id": 1
+}
+```
+
+**Updating an Automobile**
+
+The color and/or year can be used to update the model.
+```
+{
+  "color": "blue",
+  "year": 2011
 }
 ```
