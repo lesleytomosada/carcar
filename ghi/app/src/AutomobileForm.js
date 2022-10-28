@@ -52,7 +52,7 @@ class AutomobileForm extends React.Component{
         data.model_id=data.model
         delete data.models
         delete data.model
-        console.log(data)
+
         const autoUrl="http://localhost:8100/api/automobiles/"
         const fetchConfig = {
             method: "post",
@@ -61,7 +61,7 @@ class AutomobileForm extends React.Component{
                 "Content-Type": "application/json",
             },
         };
-        
+
         const autoresponse = await fetch(autoUrl, fetchConfig)
         console.log("RESPONSEEE",autoresponse)
         if (autoresponse.ok){

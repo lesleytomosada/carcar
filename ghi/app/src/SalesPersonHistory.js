@@ -3,7 +3,7 @@ import React from 'react';
 class SalesPersonHistory extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+        this.state= {
             salesperson: '',
             salespeople:[],
             sales_history: [],
@@ -42,13 +42,13 @@ class SalesPersonHistory extends React.Component{
             console.log("THIS IS THE SALES HISTORY", saleHistoryData)
 
             if (this.state.salesperson === "") {
-                this.setState({sales_history: saleHistoryData.sale_records});
-                console.log('THIS IS THE SALES', saleHistoryData.sales_history)
+                this.setState({sales_history: saleHistoryData.sales_history});
+                // console.log('THIS IS THE SALES', saleHistoryData.sales_history)
             } else {
                 let filteredSaleRecordList = [];
-                console.log("hi",saleHistoryData.sale_records, this.state)
-                for (const sale_record of saleHistoryData.sale_records) {
-                    console.log("hi",filteredSaleRecordList)
+                console.log("yyyyyyyyyyyy",saleHistoryData.sales_history,)
+                for (const sale_record of saleHistoryData.sales_history) {
+                    // console.log("xxxxxxx",filteredSaleRecordList)
                     if (String(sale_record.sales_person.employee_number) === this.state.salesperson) {
                         filteredSaleRecordList.push(sale_record);
                     }
@@ -95,7 +95,7 @@ class SalesPersonHistory extends React.Component{
                             {
                                 this.state.sales_history.map(sale =>(
                                     <tr key={sale.id}>
-                                        <td>{ sale.salesperson.name }</td>
+                                        <td>{ sale.sales_person.name1 }</td>
                                         <td>{ sale.price }</td>
                                         <td>{ sale.customer.name }</td>
                                         <td>{ sale.automobile.vin }</td>
