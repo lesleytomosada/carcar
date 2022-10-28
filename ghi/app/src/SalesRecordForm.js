@@ -7,7 +7,7 @@ class SalesRecordForm extends React.Component {
         this.state = {
             automobile: '',
             automobiles: [],
-            salesperson: '',
+            sales_person: '',
             salespeople: [],
             customer: '',
             customers: [],
@@ -24,8 +24,8 @@ class SalesRecordForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        data.salesperson = data.salesperson
-        delete data.salesperson
+        data.sales_person = data.sales_person
+        // delete data.salesperson
         delete data.automobile.color
         delete data.automobile.id
         delete data.automobile.model
@@ -43,7 +43,7 @@ class SalesRecordForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
-
+        console.log("YYYYYY", data)
         const salesresponse = await fetch(salesUrl, fetchConfig);
         console.log("after",data)
         if (salesresponse.ok) {
@@ -58,12 +58,12 @@ class SalesRecordForm extends React.Component {
 
     handleAutomobileChange(event) {
         const value = event.target.value;
-        this.setState({automobile: JSON.parse(value)});
+        this.setState({automobile: value});
     }
 
     handleSalespersonChange(event) {
         const value = event.target.value;
-        this.setState({salesperson: value})
+        this.setState({sales_person: value})
     }
 
     handleCustomerChange(event) {
@@ -133,8 +133,8 @@ class SalesRecordForm extends React.Component {
                     <option value="">Choose an automobile</option>
                     {this.state.automobiles.map((automobile) => {
                       return (
-                        <option key={automobile}
-                        value={JSON.stringify(automobile)}>
+                        <option key={automobile.id}
+                        value={automobile.id}>
                           {automobile.vin}
                         </option>
                       );
@@ -170,7 +170,7 @@ class SalesRecordForm extends React.Component {
                     <option value="">Choose a customer</option>
                     {this.state.customers.map((customer) => {
                       return (
-                        <option key={customer.phone_number} value={customer.name}>
+                        <option key={customer.phone_number} value={customer.id}>
                           {customer.name} - {customer.phone_number}
                         </option>
                       );

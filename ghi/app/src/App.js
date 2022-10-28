@@ -41,7 +41,7 @@ function App(props) {
           <Route path="serviceappointment/new" element={<ServiceAppointmentForm/>} />
           <Route path="serviceappointment/list" element={<AppointmentList/>} />
           <Route path="serviceappointment/history" element={<ServiceHistory/>} />
-          
+
           <Route path="salespersons/create" element={<SalesPersonForm />} />
           <Route path="salespersons" element={<SalesPersonHistory />} />
           <Route path="customers" element={<CustomerForm/>}/>

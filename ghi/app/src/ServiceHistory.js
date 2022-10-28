@@ -11,8 +11,8 @@ class ServiceHistory extends React.Component{
             this.setState({service_appointments: data.service_appointments})
             console.log("state",this.state)
         }
-    } 
-    
+    }
+
     render(){
         return(
             <>

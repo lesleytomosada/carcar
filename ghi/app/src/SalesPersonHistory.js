@@ -30,6 +30,7 @@ class SalesPersonHistory extends React.Component{
     }
 
     async handleSalesPersonChange(event){
+
         const value = event.target.value;
         this.setState({ salesperson: value })
 
@@ -40,11 +41,14 @@ class SalesPersonHistory extends React.Component{
             const saleHistoryData = await saleHistoryResponse.json();
             console.log("THIS IS THE SALES HISTORY", saleHistoryData)
 
-            if (this.state.salesperson === "all") {
+            if (this.state.salesperson === "") {
                 this.setState({sales_history: saleHistoryData.sale_records});
+                console.log('THIS IS THE SALES', saleHistoryData.sales_history)
             } else {
                 let filteredSaleRecordList = [];
+                console.log("hi",saleHistoryData.sale_records, this.state)
                 for (const sale_record of saleHistoryData.sale_records) {
+                    console.log("hi",filteredSaleRecordList)
                     if (String(sale_record.sales_person.employee_number) === this.state.salesperson) {
                         filteredSaleRecordList.push(sale_record);
                     }
@@ -53,6 +57,7 @@ class SalesPersonHistory extends React.Component{
             }
         }
     }
+
 
 
 
