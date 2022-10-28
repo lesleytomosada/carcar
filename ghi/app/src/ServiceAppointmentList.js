@@ -66,6 +66,7 @@ async handleCompletion(service_appointment){
 render(){
     return (
         <div className="container">
+            <br></br>
             <h1>Upcoming Appointment List</h1>
                 <table className="table table-striped">
                     <thead>
