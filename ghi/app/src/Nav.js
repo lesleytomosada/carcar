@@ -32,16 +32,21 @@ function Nav() {
             </ul>
             </li>
             <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Inventory</a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <NavLink className="nav-link" to="/manufacturers">List Manufacturers</NavLink>
                 <NavLink className="nav-link" to="/manufacturers/new">Create Manufacturers</NavLink>
                 <NavLink className="nav-link" to="/models">List Models</NavLink>
+<<<<<<< HEAD
                 <NavLink className="nav-link" to="/models/new">Create Model</NavLink>
                 <NavLink className="nav-link" to="/automobiles">List Automobiles</NavLink>
                 <NavLink className="nav-link" to="/automobiles/new">Create Automobiles</NavLink>
 
+=======
+                <NavLink className="nav-link" to="/automobiles/new">Create Automobiles</NavLink>
+                <NavLink className="nav-link" to="/automobiles">Automobiles List</NavLink>
+>>>>>>> main
             </ul>
             </li>
             </ul>

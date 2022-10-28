@@ -8,6 +8,7 @@ class AutomobileForm extends React.Component{
             color:'',
             year:'',
             model:[],
+            models:[],
         }
         this.handleVinChange=this.handleVinChange.bind(this)
         this.handleColorChange=this.handleColorChange.bind(this)
@@ -24,22 +25,22 @@ class AutomobileForm extends React.Component{
             this.setState({models:data.models})
         }
     }
-    
+
     handleVinChange(event){
         const value = event.target.value;
         this.setState({vin:value})
     }
-    
+
     handleColorChange(event){
         const value = event.target.value;
         this.setState({color:value})
     }
-    
+
     handleYearChange(event){
         const value = event.target.value;
         this.setState({year:value})
     }
-    
+
     handleModelChange(event){
         const value = event.target.value;
         this.setState({model:value})
@@ -47,35 +48,34 @@ class AutomobileForm extends React.Component{
 
     async handleSubmit(event){
         event.preventDefault();
-        const data = {...this?.state}
+        const data = {...this.state}
         data.model_id=data.model
         delete data.models
         delete data.model
-        console.log(data)
+
         const autoUrl="http://localhost:8100/api/automobiles/"
-        const fetchConfig={
+        const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
             header:{
                 "Content-Type": "application/json",
             },
-        }
-        const response = await fetch(autoUrl, fetchConfig)
-        console.log("RESPONSEEE",response)
-        if (response.ok){
-            const newAutomobile = await response.json()
-            console.log(newAutomobile)
+        };
 
-            const cleared={
-                vin: '',
-                color:'',
-                year:'',
-                model:'',
-            }
-            this.setState(cleared);
+        const autoresponse = await fetch(autoUrl, fetchConfig)
+        console.log("RESPONSEEE",autoresponse)
+        if (autoresponse.ok){
+            const newAutomobile = await autoresponse.json()
+            this.setState({
+                vin: "",
+                color:"",
+                year:"",
+                model:"",
+            });
+
         }
     }
-   
+
     render(){
         return(
             <div className="row">
@@ -98,7 +98,7 @@ class AutomobileForm extends React.Component{
                     <div className="mb-3">
                     <select onChange={this.handleModelChange} required id="model" name="model"  className="form-select">
                       <option value="">Model</option>
-                      {this?.state?.models?.map(model => {
+                      {this.state.models?.map(model => {
                         return(
                             <option key={model.name} value={model.id}>
                                 {model.name}
@@ -106,7 +106,7 @@ class AutomobileForm extends React.Component{
                         )
                       })}
                     </select>
-    
+
                   </div>
                     <button className="btn btn-primary">Create</button>
                 </form>

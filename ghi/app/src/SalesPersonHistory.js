@@ -3,10 +3,14 @@ import React from 'react';
 class SalesPersonHistory extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+        this.state= {
             salesperson: '',
             salespeople:[],
             sales_history: [],
+            sale_records:[],
+            sale_records:"",
+            sale_record:[],
+            sale_record:"",
         };
     this.handleSalesPersonChange = this.handleSalesPersonChange.bind(this);
 
@@ -26,7 +30,7 @@ class SalesPersonHistory extends React.Component{
     }
 
     async handleSalesPersonChange(event){
-        console.log("hi")
+
         const value = event.target.value;
         this.setState({ salesperson: value })
 
@@ -37,12 +41,14 @@ class SalesPersonHistory extends React.Component{
             const saleHistoryData = await saleHistoryResponse.json();
             console.log("THIS IS THE SALES HISTORY", saleHistoryData)
 
-            if (this.state.salesperson === "all") {
-                this.setState({sales_history: saleHistoryData.sale_records});
-                console.log('THIS IS THE SALES', saleHistoryData.sales_history)
+            if (this.state.salesperson === "") {
+                this.setState({sales_history: saleHistoryData.sales_history});
+                // console.log('THIS IS THE SALES', saleHistoryData.sales_history)
             } else {
                 let filteredSaleRecordList = [];
-                for (const sale_record of saleHistoryData.sale_records) {
+                console.log("yyyyyyyyyyyy",saleHistoryData.sales_history,)
+                for (const sale_record of saleHistoryData.sales_history) {
+                    // console.log("xxxxxxx",filteredSaleRecordList)
                     if (String(sale_record.sales_person.employee_number) === this.state.salesperson) {
                         filteredSaleRecordList.push(sale_record);
                     }
@@ -51,6 +57,7 @@ class SalesPersonHistory extends React.Component{
             }
         }
     }
+
 
 
 
@@ -67,9 +74,9 @@ class SalesPersonHistory extends React.Component{
                     <option value="">Choose a Sales Person to View History</option>
                     {this.state.salespeople.map(salesperson => {
                             return (
-                                <option key={salesperson.employee_id}
-                                value={salesperson.employee_id}>
-                                {salesperson.name}
+                                <option key={salesperson.id}
+                                value={salesperson.id}>
+                                {salesperson.name1}
                                 </option>
                             );
                     })}
@@ -85,10 +92,10 @@ class SalesPersonHistory extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                        {this.state.sales_history.map(sale =>
-                                    (
-                                    <tr key={sale.id} value={sale.id}>
-                                        <td>{ sale.salesperson.name }</td>
+                            {
+                                this.state.sales_history.map(sale =>(
+                                    <tr key={sale.id}>
+                                        <td>{ sale.sales_person.name1 }</td>
                                         <td>{ sale.price }</td>
                                         <td>{ sale.customer.name }</td>
                                         <td>{ sale.automobile.vin }</td>

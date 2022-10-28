@@ -21,7 +21,7 @@ class TechnicianDetailEncoder(ModelEncoder):
 class ServiceAppointmentEncoder(ModelEncoder):
     model=ServiceAppointment
     properties=["vin", "owner_name", "date_and_time", "technician", "service_reason", "is_vip","is_completed", "id"]
-    
+
     encoders={"technician":TechnicianDetailEncoder()}
 
     def get_extra_data(self, o):
@@ -63,7 +63,7 @@ def api_list_service_appointments(request):
             else:
                 content["is_vip"]=False
         except Technician.DoesNotExist:
-            return JsonResponse({"message": "Invalid Technician ID"}, status_code=400)
+            return JsonResponse({"message": "Invalid Technician ID"}, status=400)
         service_appointment=ServiceAppointment.objects.create(**content)
         return JsonResponse(service_appointment, ServiceAppointmentEncoder, safe= False)
 
@@ -72,6 +72,7 @@ def api_detail_service_appointments(request, pk):
     if request.method == "DELETE":
         count,_ = ServiceAppointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count>0})
+<<<<<<< HEAD
     else:
         try:
             content=json.loads(request.body)
@@ -90,3 +91,5 @@ def api_detail_service_appointments(request, pk):
             response = JsonResponse({"message":"Service Appointment Does not Exist"})
             response.status_code = 404
             return response
+=======
+>>>>>>> main
