@@ -26,7 +26,6 @@ class SalesPersonForm extends React.Component {
                 'Content-Type': 'application/json',
             },
         };
-        console.log("HERERERE",data )
         const response = await fetch(salespersonUrl, fetchConfig);
 
 

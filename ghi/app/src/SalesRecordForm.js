@@ -24,7 +24,6 @@ class SalesRecordForm extends React.Component {
 
     goneCars(data) {
       const goneCars = []
-      // console.log(data)
       const vinRecs = this.state.sales_records.map(item => {return item.automobile.vin})
       for (let car of data.autos) {
           if (!vinRecs.includes(car.vin)) {
@@ -47,7 +46,7 @@ class SalesRecordForm extends React.Component {
         delete data.customers
         delete data.salespeople
         delete data.sales_records
-        console.log(data)
+
 
 
         const salesUrl = 'http://localhost:8090/api/sales/';
@@ -70,6 +69,7 @@ class SalesRecordForm extends React.Component {
               price: "",
           };
             this.setState(cleared);
+            this.componentDidMount()
         }
     }
 
@@ -109,6 +109,7 @@ class SalesRecordForm extends React.Component {
             const data = await customerResponse.json();
             this.setState({customers: data.customers});
         }
+
         const salesUrl = 'http://localhost:8090/api/sales/';
         const saleResponse = await fetch(salesUrl);
         if (saleResponse.ok) {
@@ -124,8 +125,8 @@ class SalesRecordForm extends React.Component {
 
             // this.setState({automobiles: autoData.autos});
             this.goneCars(autoData);
-            console.log(this.state)
         }
+
 
 
     }
@@ -144,8 +145,7 @@ class SalesRecordForm extends React.Component {
                     onChange={this.handlePriceChange}
                     value={this.state.price}
                     placeholder="Price"
-                    required
-                    type="number"
+                    required type="number"
                     name="price"
                     min="0"
                     id="price"
@@ -209,7 +209,9 @@ class SalesRecordForm extends React.Component {
                   </select>
                 </div>
                 </div>
-              <button className="btn btn-primary">Create</button>
+                < div className= "d-flex justify-content-center">
+                  <button className="btn btn-success btn-default" type="submit" data-toggle="button">Submit</button>
+                </div>
               </div>
               </form>
               </div>
