@@ -98,7 +98,9 @@ These can be used as samples to create inventory data via Insomnia, if needed.
 Only the name is required to update the manufacturer: 
 
 {
-  "name": "Chrysler"
+
+  "name": "Honda"
+
 }
 
 **Update a Manufacturer**
