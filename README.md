@@ -82,7 +82,7 @@ All Automobiles: http://localhost:3000/automobiles/
 View all the Cars available in the dealership.
 
 ### Inventory Endpoints
-**Manufacturers**
+#### Manufacturers
 Action | Method | URL
 --- | --- | ---
 List manufacturers | GET | http://localhost:8100/api/manufacturers/
@@ -103,7 +103,7 @@ Only the name is required to create or update the manufacturer:
 }
 ```
 
-**Models**
+#### Models
 Action | Method | URL
 --- | --- | ---
 List models|GET|http://localhost:8100/api/models/
@@ -133,7 +133,7 @@ Name and/or picture can be used to update the model.
 }
 ```
 
-**Automobiles**
+#### Automobiles
 Action | Method | URL
 --- | --- | ---
 List automobiles|GET|http://localhost:8100/api/automobiles/
