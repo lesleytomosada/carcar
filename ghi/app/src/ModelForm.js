@@ -68,7 +68,7 @@ async componentDidMount() {
             <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                <h1>Create a New Vehicle Model</h1>
+                <h1>Create a New Model</h1>
                 <form onSubmit={this.handleSubmit} id="create-service-appointment-form">
                     <div className="form-floating mb-3">
                     <input onChange={this.handleChange} placeholder="name" required type="text" name="name" value= {this.state.name} id="name" className="form-control"/>
