@@ -31,9 +31,9 @@ class CustomerForm extends React.Component {
 
         if (response.ok) {
             const cleared = {
-                name: '',
-                address: '',
-                phone_number: '',
+                name: "",
+                address: "",
+                phone_number: "",
             };
             this.setState(cleared);
         }
@@ -58,7 +58,7 @@ class CustomerForm extends React.Component {
             <div className="row">
                 <div className="offset-3 col-5">
                     <div className="shadow p-4 mt-4">
-                        <h1 className= "text-center">Add a Potential Customer</h1>
+                        <h1 className= "text-center">Create a Potential Customer</h1>
                         <form onSubmit={this.handleSubmit} id="create-salesperson-form">
                             <div className="form-floating mb-3">
                                 <input
@@ -90,7 +90,7 @@ class CustomerForm extends React.Component {
                                 <input
                                   className="form-control"
                                   onChange={this.handlePhoneNumberChange}
-                                  value={this.state.phoneNumber}
+                                  value={this.state.phone_number}
                                   placeholder="Customer's phone_number"
                                   required
                                   type="text"

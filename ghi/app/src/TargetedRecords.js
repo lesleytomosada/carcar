@@ -46,7 +46,7 @@ class TargetedRecords extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        data.sales_rep = data.salesReps;
+        data.salesReps = data.salesReps;
         delete data.salesReps;
         const fetchConfig = {
             method: "post",
