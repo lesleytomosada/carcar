@@ -42,7 +42,6 @@ async handleCompletion(service_appointment){
  const data = {
         "is_completed": true,
     }
-    console.log(data)
     const url = `http://localhost:8080/api/serviceappointments/${service_appointment.id}/`
     const fetchConfig={
         method:"put",
@@ -53,9 +52,6 @@ async handleCompletion(service_appointment){
     }
     const response = await fetch(url, fetchConfig)
     if (response.ok){
-        const completedAppointment = await response.json()
-        console.log(completedAppointment)
-        // window.location.reload()
         this.getData()
     }
 
