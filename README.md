@@ -1,11 +1,15 @@
 # CarCar
 ## Getting Started
 * Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
-* Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
+* Step - 2 : Open the cloned repo - cd into repo then maybe use `code . ` in terminal
 * Step - 3 : After it is opened, you may then look around
 * Step - 4 : In terminal run `docker volume create beta-data`, then `docker compose up --build`, this will create all docker containers required to run the application
 * Step - 5 : You can now open localhost:3000 to use said application
-* Step - 6 : Keep reading to see how this application is used.
+* Step - 6 : Create an automobile by first going to Inventory -> Create a Manufacturer
+* Step - 7 : Enter the name of your favorite car manufacturer and click submit
+* Step - 8 : Navigate to Inventory -> Create a Model and enter your favorite car model, find a url for a picture of that car (WARNING: must be less than 200 characters), select the manufacturer just created, and click submit
+* Step - 9 : Navigate to Inventory -> Create an Automobile and enter a VIN, color, year, and pick the model you just created. 
+* Step - 10 : Keep reading to learn more about the Inventory API and Service and Sales Microservices! Have fun! 
 
 Team:
 
@@ -29,8 +33,17 @@ Team:
 * Create a sales record and list all sales
 * Select a sales person from a drop down list and view detail of their sales
 
-## Sales microservice
-The Sales API is a microserve that consists in its own bounded content to provide the user with an interface that allows the tracking of the sales employees and their indvidual sales, customer information, and previous sale records. To do this I thought it would be best to build some models and views to interact with the database and then build out the frontend with 5 unique pages handling the creation and listing of various components.
+## Service Microservice
+The service microservice is composed of 3 models - Service Appointment, Technician, and AutomobileVO.
+The technician model has fields of name and employee number. The Service Appointment model has the fields of vin, owner name, date and time, technician(which is a foreign key to the technician model), service reason, vip, and completed. The automobileVO model has the properties of vin and import_href.A poller was setup to poll data from the inventory API to the service microservice into the automobileVO. 
+
+The services microservice has two forms that use POST, the create a technician and create a service appointment. The service appointment list and history both use GET, and the service appointment also uses DELETE. The service appointment form is filtered to only show current, pending appointments and allows the user to mark an appointment as cancelled or completed. The service appointment list will also mark an appointment as VIP with a * if the car was purchased from the dealership's inventory. The service list history is a list of all service appointments. There is a search bar at top that allows the user to search for appointments by a specific VIN. 
+
+Create a technician at Service -> Create a Technician and a few service appointments at Service -> Create a Service Appoint to play around with the functionality of the microservice. 
+
+
+## Sales Microservice
+The Sales API is a microservice that consists in its own bounded content to provide the user with an interface that allows the tracking of the sales employees and their indvidual sales, customer information, and previous sale records. To do this I thought it would be best to build some models and views to interact with the database and then build out the frontend with 5 unique pages handling the creation and listing of various components.
 
 The Backend:
 
@@ -47,7 +60,7 @@ Challenges:
 
 Throughout this project I achieved a greater understanding of how the frontend and backend work together, however in the future I would take more time to plan out my approach to the project. For example, what do I want the user to experience, what is that page called, how does it look? I built this project backend to front, making decisions on naming, style and sometimes functionality as I went and ran into errors. I feel like if I would have spent more time in the beginning imagining front-end to back-end while also jotting down some rules for myself that I would like to follow when it comes to naming variables I could have saved myself a lot of time chasing errors.
 
-## Service API Overview
+## Service Overview
 
 The service API tracks service appointments for cars and owners
 
