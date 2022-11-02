@@ -40,10 +40,16 @@ def api_list_technicians(request):
             {"technicians":technicians},
             encoder=TechnicianListEncoder
         )
-    else:
+    elif "POST":
         content=json.loads(request.body)
         technician=Technician.objects.create(**content)
         return JsonResponse(technician, encoder=TechnicianListEncoder, safe=False)
+
+@require_http_methods(["DELETE"])
+def api_detail_technician(request, pk):
+    if request.method == "DELETE":
+        count,_ = Technician.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted":count>0})
 
 @require_http_methods(["GET", "POST"])
 def api_list_service_appointments(request):

@@ -38,9 +38,12 @@ class TechnicianForm extends React.Component {
         }
         const response = await fetch(technicianUrl, fetchConfig)
         if (response.ok) {
+            const successTag = document.getElementById("success")
+            successTag.classList.remove("d-none")
             const cleared = {
                 name: '',
                 employeeNumber: ''
+                
             }
             this.setState(cleared);
         }
@@ -50,8 +53,11 @@ class TechnicianForm extends React.Component {
     render() {
         return (
             <div className="row">
+                
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <br></br>
+                <p class="alert alert-success d-none" id= "success"> Technician successfully created!</p>
+                    <div className="shadow p-4 mt-4 bg-light">
                         <h1>Create a New Technician</h1>
                         <form onSubmit={this.handleSubmit} id="create-technician-form">
                             <div className="form-floating mb-3">

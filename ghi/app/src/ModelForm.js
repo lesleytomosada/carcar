@@ -40,6 +40,8 @@ async handleSubmit(event){
     }
     const response = await fetch(modelUrl, fetchConfig)
     if (response.ok) {
+        const successTag = document.getElementById("success")
+        successTag.classList.remove("d-none")
            const cleared = {
             name: '',
             pictureUrl:'',
@@ -67,6 +69,8 @@ async componentDidMount() {
         return(
             <div className="row">
             <div className="offset-3 col-6">
+                <br></br>
+                <p class="alert alert-success d-none" id= "success"> Model successfully created!</p>
                 <div className="shadow p-4 mt-4">
                 <h1>Create a New Model</h1>
                 <form onSubmit={this.handleSubmit} id="create-service-appointment-form">

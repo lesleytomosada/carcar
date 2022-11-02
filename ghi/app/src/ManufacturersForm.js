@@ -29,7 +29,8 @@ class ManufacturerForm extends React.Component {
 
     const manufacturersResponse = await fetch(manufacturerURL, fetchConfig);
     if (manufacturersResponse.ok) {
-      const newManufacturer = await manufacturersResponse.json();
+      const successTag = document.getElementById("success")
+      successTag.classList.remove("d-none")
       this.setState({
         name: "",
       });
@@ -45,6 +46,8 @@ class ManufacturerForm extends React.Component {
     return (
       <div className="row">
         <div className="offset-3 col-6">
+          <br></br>
+        <p class="alert alert-success d-none" id= "success"> Manufacturer successfully completed!</p>
           <div className="shadow p-4 mt-4">
             <h1 className= 'text-center'>Create a Manufacturer</h1>
             <form onSubmit={this.handleSubmit} id="create-manufacturer-form">

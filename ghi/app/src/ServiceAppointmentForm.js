@@ -64,7 +64,8 @@ async handleSubmit(event){
     }
     const response = await fetch(technicianUrl, fetchConfig)
     if (response.ok) {
-        const newServiceAppointment = await response.json()
+        const successTag = document.getElementById("success")
+        successTag.classList.remove("d-none")
 
         const cleared={
             vin:"",
@@ -92,6 +93,8 @@ render() {
     return (
         <div className="row">
         <div className="offset-3 col-6">
+            <br></br>
+        <p class="alert alert-success d-none" id= "success"> Service appointment successfully created!</p>
             <div className="shadow p-4 mt-4">
             <h1>Create a New Service Appointment</h1>
             <form onSubmit={this.handleSubmit} id="create-service-appointment-form">
